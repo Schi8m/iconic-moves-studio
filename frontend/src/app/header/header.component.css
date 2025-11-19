@@ -1,0 +1,49 @@
+.header {
+    background-color: black;
+    height: 100px;
+    width: 100%;
+
+    border-bottom: 2px solid rgba(98, 98, 98, 0.5);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 32px;
+}
+
+.header__icon {
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.header__menu {
+    height: 92px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    
+    flex: 1;
+    max-width: fit-content;
+}
+
+.header__item {
+    color: white;
+    white-space: nowrap;
+    cursor: pointer;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin: 0 16px;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.header__item:hover {
+    color: #00D8FF;
+    cursor: pointer;
+}
+
+.profile {
+    height: 70px;
+    width: 76px;
+}
