@@ -1,0 +1,44 @@
+.schedule-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 10px;
+    background-color: #1e1e1e77;
+}
+.schedule-table th {
+    background-color: #1e1e1e;
+    border: 1px solid #00D8FF33;
+    height: 50px;
+}
+.schedule-table td {
+    background-color: #1e1e1e55;
+    border-radius: 10px;
+    border: 1px solid #B700FF55;
+    padding: 16px;
+}
+
+.schedule-table td[data-col="0"] {
+    background-color: #1e1e1e;
+    border: 1px solid #00D8FF33;
+    padding-block: 25px;
+    border-radius: 0;
+    padding-inline: 25px;
+    text-align: center;
+}
+
+.schedule-table td:hover {
+    transform: scale(1.05, 1.05);
+}
+
+.schedule-table td[data-col="0"]:hover {
+    transform: none;
+}
+
+.training-card {
+    user-select: none;
+    cursor: pointer;
+}
+
+.training-card .time-str {
+    font-weight: 100;
+    font-size: 14px;
+}

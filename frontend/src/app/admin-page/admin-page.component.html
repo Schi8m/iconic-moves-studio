@@ -1,0 +1,34 @@
+<div class="admin-page">
+    <h2>Записи на занятия</h2>
+    
+    <div *ngIf="bookings.length === 0" class="no-bookings">
+        Записей не найдено
+    </div>
+    
+    <ng-container *ngIf="bookings.length > 0">
+        <div style="width: 100%" *ngFor="let booking of bookings">
+            <ng-template [ngTemplateOutlet]="bookingTemplate" 
+                        [ngTemplateOutletContext]="{ $implicit: booking }">
+            </ng-template>
+        </div>
+    </ng-container>
+    
+    <ng-template #bookingTemplate let-booking>
+        <div class="booking-card">
+            <div class="inner-container">
+                <h3>Клиент</h3>
+                <span>Фамилия: {{ booking.client_surname }} </span>
+                <span>Имя: {{ booking.client_name }} </span>
+                <span>Отчество: {{ booking.client_secondname }} </span>
+                <span>Телефон: {{ booking.phone }} </span>
+            </div>
+            <div class="inner-container">
+                <h3>Тренировка</h3>
+                <span>{{ booking.schedule_title }}</span>
+                <span>{{ booking.dateTimeStr }}</span>
+                <span>Группа: {{ booking.schedule_group }}</span>
+                <span>Зал: {{ booking.schedule_room }}</span>
+            </div>
+        </div>
+    </ng-template>
+</div>

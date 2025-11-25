@@ -22,6 +22,7 @@
 }
 
 .container-main-button {
+    cursor: pointer;
     margin-top: 50px ;
     background-color: black;
     border: 3px solid #B700FF;
@@ -30,8 +31,9 @@
     color: white;
     font-size: 42px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    transition: transform .3s ease;
 }
 
 .container-main-button:hover {
-    border: 5px solid #B700FF;
+    transform: scale(1.05, 1.05);
 }

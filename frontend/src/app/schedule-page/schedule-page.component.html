@@ -1,0 +1,38 @@
+<table class="schedule-table">
+    <thead>
+        <tr>
+            <th></th>
+            <th *ngFor="let colIndex of columnIndexes; let i = index">
+                {{ colIndex }}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of tableConfig.data; let rowIndex = index">
+            <td *ngFor="let cell of row; let colIndex = index" 
+                [attr.data-row]="rowIndex" 
+                [attr.data-col]="colIndex">
+                
+                <ng-container *ngIf="isTimeCell(cell); else trainingCard">
+                    {{ cell.title }}
+                </ng-container>
+                
+                <ng-template #trainingCard>
+                    <div class="training-card" *ngIf="hasTraining(cell)" (click)="openBookingModal(cell)">
+                        <div class="train-title">{{ cell.title }}</div>
+                        <div class="time-str">{{ cell.timeStr }}</div>
+                        <div class="teacher-str">Преподаватель: {{ cell.teacher }}</div>
+                        <div class="group-str">Группа: {{ cell.class_group }}</div>
+                        <div class="room-str">Зал: {{ cell.room }}</div>
+                    </div>
+                </ng-template>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<booking-modal
+    [showModal]="showBookingModal"
+    [trainingDataId]="selectedTrainingId"
+    (modalClosed)="closeBookingModal()">
+</booking-modal>

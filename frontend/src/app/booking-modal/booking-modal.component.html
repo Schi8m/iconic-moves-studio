@@ -1,0 +1,49 @@
+<div *ngIf="showModal" class="modal-overlay" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+        <img src="assets/icons/main.png" class="modal-title-img">
+        <h2>Запись на пробное занятие</h2>
+
+        <div class="success-wrapper" *ngIf="successMessage && successMessage.length > 0; else formTemplate">
+            <div class="success">{{ successMessage }}</div>
+        </div>
+
+        <ng-template #formTemplate>
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="surname">Фамилия*</label>
+                    <input type="text" id="surname" formControlName="surname" class="form-input">
+                    <div *ngIf="contactForm.get('surname')?.invalid && contactForm.get('surname')?.touched" class="error">
+                        Поле обязательно к заполнению
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Имя*</label>
+                    <input type="text" id="name" formControlName="name" class="form-input">
+                    <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" class="error">
+                        Поле обязательно к заполнению
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="secondName">Отчество</label>
+                    <input type="text" id="secondName" formControlName="secondName" class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Телефон*</label>
+                    <input type="tel" id="phone" formControlName="phone" class="form-input">
+                    <div *ngIf="contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched" class="error">
+                        Поле обязательно к заполнению
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn" [disabled]="contactForm.invalid">
+                    {{ isLoading ? 'Отправка...' : 'Записаться' }}
+                </button>
+        
+                <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+            </form>
+        </ng-template>
+    </div>
+</div>

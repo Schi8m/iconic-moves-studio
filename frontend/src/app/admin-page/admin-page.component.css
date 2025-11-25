@@ -1,0 +1,31 @@
+.admin-page {
+    width: 100%;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 50px;
+    padding-block-end: 100px;
+    gap: 25px;
+}
+
+.admin-page .booking-card {
+    width: 100%;
+    background-color: #1e1e1e88;
+    border-radius: 10px;
+    padding-inline: 50px;
+    padding-block: 10px 25px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+    border: 1px solid #B700FF55;
+}
+
+.admin-page .booking-card .inner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+    gap: 10px;
+}

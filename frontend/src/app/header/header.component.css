@@ -11,6 +11,10 @@
     padding: 0 32px;
 }
 
+.header img {
+    cursor: pointer;
+}
+
 .header__icon {
     color: white;
     font-weight: bold;
